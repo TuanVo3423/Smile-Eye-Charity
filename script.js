@@ -37,3 +37,12 @@ skillPers.forEach(function (skillPer) {
 
   requestAnimationFrame(animate);
 });
+
+document.querySelector(".top-bar .next").onclick = function () {
+  const widthItem = document.querySelector("#formList .card").offsetWidth + 14;
+  document.getElementById("formList").scrollLeft += widthItem;
+};
+document.querySelector(".top-bar .prev").onclick = function () {
+  const widthItem = document.querySelector("#formList .card").offsetWidth + 14;
+  document.getElementById("formList").scrollLeft -= widthItem;
+};
