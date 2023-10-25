@@ -1,10 +1,13 @@
-const player = new Plyr("video", { captions: { active: true } });
+// const player = new Plyr("video", { captions: { active: true } });
+const players = Array.from(document.querySelectorAll(".js-player")).map(
+  (p) => new Plyr(p, { captions: { active: true } })
+);
 const btn_menu = document.querySelector(".left");
 const current_langue = "EN";
 const menu = document.querySelector(".header-left-menu-langue");
 
 // Expose player so it can be used from the console
-window.player = player;
+// window.player = player;
 var skillPers = document.querySelectorAll(".skill-per");
 
 btn_menu.addEventListener("click", function () {

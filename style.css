@@ -68,6 +68,9 @@ body::-webkit-scrollbar-thumb {
   font-weight: 600;
   gap: 34px;
 }
+.center > a{
+  cursor: pointer;
+}
 
 .right {
   display: flex;
@@ -114,6 +117,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 30px;
   color: #4baf47;
   right: 0;
+  cursor: pointer;
 }
 h1 {
   font-size: 40px;
@@ -475,6 +479,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 #blog .group-btn div svg {
