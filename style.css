@@ -1,10 +1,14 @@
 /* @import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
 /* reset css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,6 +22,7 @@ body::-webkit-scrollbar {
   width: 14px;
   background-color: white;
 }
+
 body::-webkit-scrollbar-thumb {
   border-radius: 2px;
   background: #aaa;
@@ -30,7 +35,7 @@ body::-webkit-scrollbar-thumb {
   position: sticky;
   display: flex;
   justify-content: space-between;
-  background-color: #295442;
+  background-color: #2e7d2a;
   color: #fff;
   width: 100%;
   max-height: 82px;
@@ -44,6 +49,7 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   gap: 4px;
 }
+
 .header-left-menu-langue {
   position: absolute;
   background-color: #295442;
@@ -56,6 +62,7 @@ body::-webkit-scrollbar-thumb {
   bottom: -80%;
   left: 0;
 }
+
 .open {
   display: flex;
 }
@@ -68,8 +75,35 @@ body::-webkit-scrollbar-thumb {
   font-weight: 600;
   gap: 34px;
 }
-.center > a{
+
+.center > a {
   cursor: pointer;
+}
+
+.language-flag {
+  width: 30px;
+  height: 20px;
+}
+
+.language-flag-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-center-nav > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-center-nav :hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.nav-item-active {
+  text-underline-offset: 8px;
+  text-decoration: underline !important;
 }
 
 .right {
@@ -78,7 +112,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
 }
 
-.donate_header_btn {
+.donate_header_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,16 +126,34 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
+.donate_header_btn {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  background-color: transparent;
+  padding: 10px 18px;
+  font-size: 18px;
+  border: 1px solid #4baf47;
+  border-radius: 5px;
+  cursor: pointer; */
+}
+
 /* ----------------- Main Event -----main_event_content----------- */
 
 .main_event {
-  height: calc(100vh - 82px);
-  max-height: calc(100vh - 82px);
+  height: calc(100vh - 30px);
+  max-height: calc(100vh - 30px);
   display: flex;
   flex-direction: column;
   gap: 30px;
   padding: 50px 100px;
 }
+
 .main_envent_header {
   display: flex;
   flex-direction: column;
@@ -111,6 +163,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   gap: 10px;
 }
+
 .main_envent_header_icon {
   position: absolute;
   top: 50%;
@@ -119,12 +172,14 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   cursor: pointer;
 }
+
 h1 {
   font-size: 40px;
   font-weight: 900;
   color: #000;
   margin: 0;
 }
+
 h2 {
   font-size: 28px;
   font-weight: 700;
@@ -137,6 +192,7 @@ h2 {
   align-items: center;
   gap: 50px;
 }
+
 .main_envent_header > div > span {
   color: #24231d;
   font-size: 20px;
@@ -155,6 +211,7 @@ h2 {
 .main_event_content-left {
   flex: 1.5;
 }
+
 .main_event_content-right {
   display: flex;
   flex-direction: column;
@@ -180,6 +237,7 @@ h2 {
   max-height: 250px;
   overflow: auto;
 }
+
 .main_event_content-right-description > p {
   text-align: left;
 }
@@ -187,12 +245,14 @@ h2 {
 .main_event_content-right-description::-webkit-scrollbar-thumb {
   background: green;
 }
+
 .main_event_content-right-description::-webkit-scrollbar {
   /* green */
   width: 5px;
   height: 8px;
   border-radius: 2px;
-  background-color: #aaa; /* or add it to the track */
+  background-color: #aaa;
+  /* or add it to the track */
 }
 
 .main_event_content-right-link-wrapper {
@@ -203,13 +263,14 @@ h2 {
 
 .main_event_content-right-link-wrapper > a {
   font-size: 18px;
-  color: #4baf47;
+  color: black;
 }
 
 .plyr {
   margin: 0;
   border-radius: 10px;
 }
+
 .funding-process {
   display: flex;
   align-items: center;
@@ -243,6 +304,7 @@ h2 {
   gap: 50px;
   justify-content: space-between;
 }
+
 .main_event_content-right-bottom > div {
   display: flex;
   align-items: center;
@@ -266,12 +328,14 @@ h2 {
   flex-direction: column;
   gap: 50px;
 }
+
 .header-title {
   text-transform: uppercase;
   font-size: 50px;
   font-weight: 900;
   margin-left: 30px;
 }
+
 .header-t2 {
   font-size: 45px;
   margin-left: 30px;
@@ -300,9 +364,11 @@ h2 {
   display: table;
   clear: both;
 }
+
 .member p.email {
   color: green;
 }
+
 #volunteers {
   border: 1px solid rgb(199, 190, 190);
   border-radius: 10px;
@@ -315,6 +381,7 @@ h2 {
   flex-direction: column;
   gap: 30px;
 }
+
 .header-founder {
   text-align: left;
 }
@@ -323,6 +390,7 @@ h2 {
   display: flex;
   gap: 60px;
 }
+
 .founder-image {
   display: flex;
   flex-direction: column;
@@ -332,6 +400,7 @@ h2 {
 .founder-image .h2 {
   text-align: center;
 }
+
 .founder-image img {
   width: 100%;
   border-radius: 50%;
@@ -345,6 +414,7 @@ h2 {
   font-size: 18px;
   text-align: unset;
 }
+
 .email {
   color: rgb(30, 165, 228);
 }
@@ -354,6 +424,7 @@ h2 {
   text-align: center;
   margin-top: 10%;
 }
+
 .founder-image .header-founder {
   font-size: 45px;
 }
@@ -390,6 +461,7 @@ h2 {
   gap: 30px;
   padding: 50px 100px;
 }
+
 .container {
   display: flex;
   gap: 30px;
@@ -406,14 +478,24 @@ h2 {
   justify-content: center;
   padding: 20px;
 }
+
+.block > h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Change this line if you want. In this case it trimmed the text to 3 lines. */
+  overflow: hidden;
+}
+
 .special-event-wrapper-img {
   width: 100%;
 }
+
 .special-event-wrapper-img img {
   width: 100%;
   object-fit: contain;
   border-radius: 10px;
 }
+
 .block h2,
 p {
   text-align: center;
@@ -425,13 +507,16 @@ p {
   flex-direction: column;
   gap: 30px;
 }
+
 .main-program-content-link-wrapper {
   display: flex;
   align-items: center;
   gap: 100px;
 }
+
 .main-program-content-link-wrapper > a {
-  color: #4baf47;
+  color: black;
+  font-size: 18px;
 }
 
 .main-program-content-bottom {
@@ -440,6 +525,7 @@ p {
   gap: 50px;
   justify-content: space-between;
 }
+
 .main-program-content-bottom > div {
   display: flex;
   align-items: center;
@@ -543,10 +629,12 @@ p {
   gap: 40px;
   padding: 50px 100px;
 }
+
 .footer-main-wrapper .footer-top {
   display: flex;
   justify-content: space-between;
 }
+
 .footer-top-item {
   min-width: 32%;
   border-radius: 30px;
@@ -565,11 +653,13 @@ p {
   text-align: center;
   margin: auto 0;
 }
+
 .footer-top-item-content {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 .footer-top-item-content > p {
   color: white;
   max-width: 250px;
@@ -602,6 +692,7 @@ p {
   flex-direction: column;
   gap: 30px;
 }
+
 .footer-center-items > p {
   max-width: 300px;
   text-align: left;
@@ -623,9 +714,11 @@ p {
   flex-direction: column;
   gap: 20px;
 }
+
 .footer-center-items-quick-link > p {
   text-align: left;
 }
+
 .footer-send-btn {
   background-color: #4baf47;
   border: 1px solid transparent;
@@ -633,9 +726,11 @@ p {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .footer-send-btn > i {
   color: #fff;
 }
+
 .footer-center-items-email {
   flex: 1;
   color: #fff;
@@ -656,4 +751,105 @@ p {
 .footer-center-items-email:focus-visible {
   outline: 0;
   border-color: #fff;
+}
+
+/* ----------------- */
+/* -- GENERAL CSS RESETS -- */
+
+.language-flag-wrap:hover {
+  /* background-color: red; */
+}
+
+body {
+  /* -- MAIN CONTAINER -- */
+
+  & .select-wrapper {
+    width: fit-content;
+    color: #fff;
+
+    & .select-btn,
+    & .options li {
+      display: flex;
+      align-items: center;
+      height: 3em;
+      cursor: pointer;
+    }
+
+    & .select-btn {
+      /* -- Select button -- */
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      /* background-color: #222; */
+      justify-content: space-between;
+      padding: 0 1em;
+      border-radius: 0.5em;
+      font-size: 1em;
+
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+
+      & ion-icon {
+        font-size: 1.35em;
+        transition: transform 0.2s linear;
+      }
+    }
+
+    &.active .select-btn {
+      background-color: #3a3a3a;
+
+      & ion-icon {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &.active .content {
+      display: block;
+    }
+
+    & .content {
+      /* -- Dropdown container -- */
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: #3a3a3a;
+      display: none;
+      margin-top: 0.5em;
+      padding: 0.75em;
+      border-radius: 0.5em;
+
+      & .options {
+        /* -- Dropdown options container -- */
+        margin-top: 1em;
+        max-height: 12em;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          width: 7px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #2e2e2e;
+          border-radius: 25px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #5e5e5e;
+          border-radius: 25px;
+        }
+
+        & li {
+          font-size: 1em;
+          padding-left: 1em;
+          border-radius: 0.5em;
+
+          /* &:hover {
+            background-color: #4c4c4c;
+          } */
+        }
+      }
+    }
+  }
 }
