@@ -8,6 +8,9 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script type="text/javascript" src="jquery.min.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style_share_social.css">
+    <link rel="stylesheet" href="./js-socials/jssocials.css">
+    <link rel="stylesheet" href="./js-socials/jssocials-theme-classic.css">
   
 </head>
 <body>
@@ -681,7 +684,109 @@
         </div>
       </div>
     </div>
-          <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+    <!-- modal donation -->
+
+    <div class="modal">
+      <div class="modal-form-wrapper">
+        <div class="modal-form-left">
+          <h1>SMILE EYE CHARITY</h1>
+          <p>Công ty hoạt động từ thiện Smile Eye Charity, viết tắt là Smile Eye Charity, là công ty phi lợi nhuận. Smile Eye Charity kết nối các nguồn lực trong và ngoài nước để tổ chức các chương trình đào tạo thực tế, đồng hành, và hỗ trợ người dân ở các khu vực còn nhiều khó khăn. Các chương trình đào tạo nhằm mục đích giúp người dân nâng cao kỹ năng sống và kỹ năng làm kinh tế một cách bền vững.</p>
+          <h4>Thông tin công ty:</h4>
+          <div class="modal-form-left-info-item">
+            <h4>Tên:</h4>
+            <p>Công ty phi lợi nhuận hoạt động từ thiện Smile Eye Charity, viết tắt là Smile Eye Charity</p>
+          </div>
+          <div class="modal-form-left-info-item">
+            <h4>Giấy phép đăng ký:</h4>
+            <p>4001273487</p>
+          </div>
+          <div class="modal-form-left-info-item">
+            <h4>Tên:</h4>
+            <p>Công ty phi lợi nhuận hoạt động từ thiện Smile Eye Charity, viết tắt là Smile Eye Charity
+            </p>
+          </div>
+          <div class="modal-form-left-info-item">
+            <h4>Số tài khoản:</h4>
+            <p>MB bank, 020166669999, Smile Eye Charity
+              Techcombank, 22296699, Smile Eye Charity
+            </p>
+          </div>
+          <div class="modal-form-left-info-item">
+            <h4>Địa chỉ:</h4>
+            <p>Thôn Pà-Ong, Xã Cà Dy, Huyện Nam Giang, Quảng Nam
+            </p>
+          </div>
+          <div class="modal-form-left-info-item">
+            <h4>Người đại diện:</h4>
+            <p>Đinh Thị Đông Phương</p>
+          </div>
+          <div class="modal-form-left-info-item">
+            <h4>Điện thoại:</h4>
+            <p>0962 414 125</p>
+          </div>
+          <div class="modal-form-left-info-item">
+            <h4>Email:</h4>
+            <p>dinhdongphuong@gmail.com</p>
+          </div>
+          
+
+        </div>
+        <form id="form" class="modal-form-right">
+          <div class="modal-form-right-header">
+            <h1>Liên Hệ</h1>
+            <i class="ph-thin ph-x-circle close-modal-btn"></i>
+          </div>
+          <label for="content">Nội dung* </label>
+          <textarea style="height : 100px; min-height: 100px;padding: 6px;" name="content" id="content" cols="30" rows="10"></textarea>
+          <p class="modal-form-right-content-errors modal-form-error"></p>
+          <label for="name">Họ và tên* </label>
+          <input  style="height: 32px; min-height: 32px; padding: 6px;" type="text" name="name" id="name" />
+          <p class="modal-form-right-name-errors modal-form-error"></p>
+          <label for="email">Email* </label>
+          <input style="height: 32px; min-height: 32px; padding: 6px;" type="email" name="email" id="email" />
+          <p class="modal-form-right-email-errors modal-form-error"></p>
+          <label for="phone">Số điện thoại: </label>
+          <input style="height: 32px; min-height: 32px; padding: 6px;" type="text" name="phone" id="phone" />
+          <p class="modal-form-right-errors"></p>
+          <button class="become-sponsor-btn" type="submit">Gửi</button>
+        </form>
+      </div>
+      
+    </div>
+
+<!-- modal share -->
+  <div class="modal_share">
+    <div class="popup">
+        <header>
+          <span>Share</span>
+          <i style="font-size: 30px; cursor: pointer;" class="ph-thin ph-x-circle modal_share_close"></i>
+        </header>
+        <div class="modal_share_content">
+          <p>Share this link via</p>
+            <div id="share"></div>
+          <p>Or copy link</p>
+          <div class="modal_share_field">
+            <i class="url-icon uil uil-link"></i>
+            <input class="modal_share_input" type="text" readonly value="https://smile-eye-charity.vercel.app">
+            <button class="modal_share_copy_btn">Copy</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  
+
+        <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+        <script src="https://kit.fontawesome.com/7368c40b21.js" crossorigin="anonymous"></script>
         <script  src="./script.js"></script>
+        <script
+        type="text/javascript"
+        src="https://unpkg.com/validator.tool@2.0.0-alpha.2/dist/validator.min.js"
+        ></script>
+        <script  src="./validator.js"></script>
+        <script  src="./js-socials/jssocials.js"></script>
+        <script  src="./share_social.js"></script>
+        
 </body>
 </html>

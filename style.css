@@ -1,6 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
-
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap'); */
 /* reset css */
 * {
   margin: 0;
@@ -15,6 +15,7 @@ body {
   background-color: white;
   --plyr-color-main: #4baf47;
   --plyr-video-background: white;
+  /* font-family: "Open Sans", sans-serif; */
   font-family: "Quicksand", sans-serif;
 }
 
@@ -852,4 +853,161 @@ body {
       }
     }
   }
+}
+
+/* -------------------------modal------------------------ */
+.modal {
+  /* give me position value for modal */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  animation: ModalFaceIn 0.5s;
+}
+
+@keyframes ModalFaceIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-form-wrapper {
+  background-color: white;
+  display: flex;
+  gap: 10px;
+  width: 70%;
+  max-height: 75%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.modal-form-left {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+  max-width: 50%;
+  color: black;
+  background-color: #38bd43;
+  overflow: auto;
+}
+.modal-form-left > p {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.modal-form-left > h1 {
+  color: black;
+}
+
+.modal-form-left-info-item {
+  display: flex;
+  /* gap: 6px; */
+}
+
+.modal-form-left-info-item > h4 {
+  width: 40%;
+}
+
+.modal-form-left-info-item > p {
+  flex: 1;
+  text-align: left;
+}
+
+.modal-form-right {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 50%;
+  width: 50%;
+  overflow: auto;
+}
+
+.modal-form-right-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-form-right-header > i {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.modal-form-right-header > h1 {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: #38bd43;
+  margin-bottom: 8px;
+}
+
+.modal-form-right > label {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modal-form-right > button {
+  margin-left: auto;
+  max-width: 100px;
+  width: 80px;
+  margin-top: auto;
+}
+
+.modal-form-right > input {
+  border: 1px solid #ddd;
+}
+.modal-form-right > textarea {
+  border: 1px solid #ddd;
+}
+
+.modal-form-right > textarea:focus {
+  box-shadow: 0 0 5px #ccc;
+  opacity: 1 !important;
+  outline: 0;
+  color: #333;
+  background-color: #fff;
+}
+.modal-form-right > input:focus {
+  box-shadow: 0 0 5px #ccc;
+  opacity: 1 !important;
+  outline: 0;
+  color: #333;
+  background-color: #fff;
+}
+
+.modal-form-error {
+  text-align: left;
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.modal-form-left::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.modal-form-left::-webkit-scrollbar {
+  /* green */
+  width: 5px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: #38bd43;
+
+  /* or add it to the track */
 }
