@@ -529,9 +529,4 @@ $(".become-sponsor-btn").click(function () {
 $(".close-modal-btn").click(function () {
   $(".modal").attr("style", "display: none;");
 });
-const modal = document.querySelector(".modal");
-window.onclick = function (event) {
-  if (event.target == modal) {
-    $(".modal").attr("style", "display: none;");
-  }
-};
+

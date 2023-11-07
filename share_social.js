@@ -5,18 +5,13 @@ const input = document.querySelector(".modal_share_input");
 const copy_btn = document.querySelector(".modal_share_copy_btn");
 const modal_share = document.querySelector(".modal_share");
 
-const share_btn = document.querySelector(".main_envent_header_icon");
-share_btn.addEventListener("click", () => {});
-
-const test = document.querySelector(".modal_share_content");
-share_btn.addEventListener("click", () => {
-  modal_share.classList.toggle("show");
+const share_btn = document.querySelectorAll(".ph-share-network");
+share_btn.forEach((item) => {
+  item.addEventListener("click", () => {
+    modal_share.classList.toggle("show");
+  });
 });
 
-// viewBtn.onclick = () => {
-//   modal_share.classList.toggle("show");
-//   popup.classList.toggle("show");
-// };
 modal_share_close.onclick = () => {
   modal_share.classList.toggle("show");
 };
@@ -35,9 +30,13 @@ copy_btn.addEventListener("click", () => {
   }
 });
 
+const modal = document.querySelector(".modal");
 window.onclick = function (event) {
+  if (event.target == modal) {
+    $(".modal").attr("style", "display: none;");
+  }
   if (event.target == modal_share) {
-    $(".modal_share").attr("style", "display: none;");
+    $(".modal_share").toggleClass("show");
   }
 };
 
@@ -49,6 +48,5 @@ $("#share").jsSocials({
     "twitter",
     { share: "facebook", showLabel: true },
     { share: "linkedin", showLabel: true },
-    { share: "pinterest", showLabel: true },
   ],
 });
