@@ -218,7 +218,7 @@ h2 {
   flex-direction: column;
   height: 100%;
   flex: 1;
-  gap: 50px;
+  gap: 18px;
 }
 
 .main_event_content-right-block {
@@ -226,8 +226,8 @@ h2 {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  gap: 30px;
-  margin-bottom: 52px;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
 .main_event_content-right-description {
@@ -265,6 +265,7 @@ h2 {
 .main_event_content-right-link-wrapper > a {
   font-size: 18px;
   color: black;
+  text-underline-offset: 4px;
 }
 
 .plyr {
@@ -309,7 +310,7 @@ h2 {
 .main_event_content-right-bottom > div {
   display: flex;
   align-items: center;
-  gap: 4px;
+  /* gap: 4px; */
 }
 
 .become-sponsor-btn {
@@ -518,6 +519,7 @@ p {
 .main-program-content-link-wrapper > a {
   color: black;
   font-size: 18px;
+  text-underline-offset: 4px;
 }
 
 .main-program-content-bottom {
@@ -904,6 +906,15 @@ body {
   background-color: #38bd43;
   overflow: auto;
 }
+
+/* .modal-form-left-wrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+} */
 .modal-form-left > p {
   display: flex;
   flex-direction: column;
@@ -970,9 +981,11 @@ body {
 
 .modal-form-right > input {
   border: 1px solid #ddd;
+  border-radius: 4px;
 }
 .modal-form-right > textarea {
   border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .modal-form-right > textarea:focus {
@@ -1010,4 +1023,8 @@ body {
   background-color: #38bd43;
 
   /* or add it to the track */
+}
+
+.ph-heart {
+  cursor: pointer;
 }
