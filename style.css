@@ -89,7 +89,14 @@ body::-webkit-scrollbar-thumb {
 .language-flag-wrap {
   display: flex;
   align-items: center;
+  padding-left: 20px;
+  font-size: 16px;
+  font-weight: bold;
   gap: 6px;
+}
+.language-flag-wrap:hover {
+  color: black;
+  background-color: #ece8e8;
 }
 
 .header-center-nav > a {
@@ -117,12 +124,13 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80px;
   gap: 4px;
   color: #fff;
   background-color: transparent;
   padding: 10px 18px;
   font-size: 18px;
-  border: 1px solid #4baf47;
+  /* border: 1px solid #4baf47; */
   border-radius: 5px;
   cursor: pointer;
 }
@@ -607,7 +615,7 @@ p {
 }
 
 #blog .card .content {
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 #blog .card h3 {
@@ -790,8 +798,8 @@ body {
       font-size: 1em;
 
       &:hover {
-        background-color: black;
-        color: white;
+        background-color: #ece8e8;
+        /* color: white; */
       }
 
       & ion-icon {
@@ -801,7 +809,7 @@ body {
     }
 
     &.active .select-btn {
-      background-color: #3a3a3a;
+      background-color: #ece8e8;
 
       & ion-icon {
         transform: rotate(-180deg);
@@ -817,15 +825,17 @@ body {
       position: absolute;
       right: 0;
       top: 100%;
-      background-color: #3a3a3a;
+      min-width: 150px;
+      background-color: #2e7d2a;
       display: none;
       margin-top: 0.5em;
-      padding: 0.75em;
+      /* padding: 0.75em; */
       border-radius: 0.5em;
 
       & .options {
         /* -- Dropdown options container -- */
         margin-top: 1em;
+        margin-bottom: 1em;
         max-height: 12em;
         overflow-y: auto;
 
@@ -1026,5 +1036,112 @@ body {
 }
 
 .ph-heart {
+  cursor: pointer;
+}
+
+/* toast */
+#toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999999;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  background-color: #38bd43;
+  border-radius: 4px;
+  padding: 20px 0;
+  min-width: 400px;
+  max-width: 450px;
+  border-left: 4px solid;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+  transition: all linear 0.3s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 32px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.toast--success {
+  border-color: #2e7d2a;
+}
+
+.toast--success .toast__icon {
+  color: #2e7d2a;
+}
+
+.toast--info {
+  border-color: #2f86eb;
+}
+
+.toast--info .toast__icon {
+  color: #2f86eb;
+}
+
+.toast--warning {
+  border-color: #ffc021;
+}
+
+.toast--warning .toast__icon {
+  color: #ffc021;
+}
+
+.toast--error {
+  border-color: #ff623d;
+}
+
+.toast--error .toast__icon {
+  color: #ff623d;
+}
+
+.toast + .toast {
+  margin-top: 24px;
+}
+
+.toast__icon {
+  font-size: 24px;
+}
+
+.toast__icon,
+.toast__close {
+  padding: 0 16px;
+}
+
+.toast__body {
+  flex-grow: 1;
+}
+
+.toast__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.toast__msg {
+  text-align: left;
+  font-size: 18px;
+  color: #fff;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.toast__close {
+  font-size: 20px;
+  color: #fff;
   cursor: pointer;
 }
