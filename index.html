@@ -77,7 +77,7 @@
         <div class="main_event_content">
             <div class="main_event_content-left">
                 <!-- video -->
-                    <video class="js-player" controls crossorigin playsinline data-poster="/path/to/poster.jpg">
+                    <video class="js-player" controls crossorigin playsinline>
                          <source src="./assets/videos/video.mp4" type="video/mp4">
                          
                     </video>
@@ -134,11 +134,11 @@
                 </h2>
                 <p class="language">Time: 11/2023 - 11/2028</p>
                 
-                <video class="js-player" controls crossorigin playsinline data-poster="/path/to/poster.jpg">
+                <video class="js-player" controls crossorigin playsinline>
                   <source src="./assets/videos/video.mp4" type="video/mp4">
                   
              </video>
-                <!-- <video class="js-player" controls crossorigin playsinline data-poster="/path/to/poster.jpg">
+                <!-- <video class="js-player" controls crossorigin playsinline>
                          <source src="./assets/videos/video.mp4" type="video/mp4">
                          
                     </video> -->
@@ -175,7 +175,7 @@
               color: #4baf47; cursor: pointer;" class="ph-fill ph-share-network"></i>
             </h2>
             <p class="language">Time: 11/2023 - 11/2028</p>
-            <video class="js-player" controls crossorigin playsinline data-poster="/path/to/poster.jpg">
+            <video class="js-player" controls crossorigin playsinline>
               <source src="./assets/videos/video.mp4" type="video/mp4">
               
          </video>
@@ -229,11 +229,11 @@
               </h2>
               <p class="language">Time: 11/2023 - 11/2028</p>
               
-              <video class="js-player" controls crossorigin playsinline data-poster="/path/to/poster.jpg">
+              <video class="js-player" controls crossorigin playsinline>
                 <source src="./assets/videos/video.mp4" type="video/mp4">
                 
            </video>
-              <!-- <video class="js-player" controls crossorigin playsinline data-poster="/path/to/poster.jpg">
+              <!-- <video class="js-player" controls crossorigin playsinline>
                        <source src="./assets/videos/video.mp4" type="video/mp4">
                        
                   </video> -->
@@ -270,7 +270,7 @@
             color: #4baf47; cursor: pointer;" class="ph-fill ph-share-network"></i>
           </h2>
           <p class="language">Time: 11/2023 - 11/2028</p>
-          <video class="js-player" controls crossorigin playsinline data-poster="/path/to/poster.jpg">
+          <video class="js-player" controls crossorigin playsinline>
             <source src="./assets/videos/video.mp4" type="video/mp4">
             
        </video>
@@ -707,7 +707,7 @@
           <label class="language"  for="phone">Số điện thoại:</label>
           <input style="height: 32px; min-height: 32px; padding: 6px;" type="text" name="phone" id="phone" />
           <p class="modal-form-right-errors"></p>
-          <button class="become-sponsor-btn send-mail-btn language" onclick="sendMail()">Gửi</button>
+          <button class="become-sponsor-btn send-mail-btn language" type="submit">Gửi</button>
         </form>
       </div>
       
@@ -741,45 +741,13 @@
         type="text/javascript"
         src="https://unpkg.com/validator.tool@2.0.0-alpha.2/dist/validator.min.js"
         ></script>
-        <script  src="./validator.js"></script>
         <script  src="./js-socials/jssocials.js"></script>
         <script  src="./toast.js"></script>
         <script  src="./share_social.js"></script>
         <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
         </script>
-<script type="text/javascript">
-  function showSuccessToast() {
-    toast({
-      title: "Thành công!",
-      message: "Gửi mail thành công, chúng tôi sẽ liên hệ với bạn sớm nhất có thể.",
-      type: "success",
-      duration: 5000
-    });
-  }
-  
-  (function(){
-    emailjs.init("oGf2xSghLt1ka_BVe");
- })();
-  function sendMail(){
-    var params = {
-      name : document.getElementById("name").value,
-      email : document.getElementById("email").value,
-      phone : document.getElementById("phone").value,
-      content : document.getElementById("content").value
-    };
-    const serviceID = "service_jv500u5";
-    const templateID = "template_f68zv0n";
-    emailjs.send(serviceID, templateID, params).then((res) => {
-      document.getElementById("name").value = '';
-      document.getElementById("email").value = '';
-      document.getElementById("phone").value = '';
-      document.getElementById("content").value = '';
-      document.querySelector(".modal").setAttribute("style", "display: none;");
-      showSuccessToast();
-    })
-  }
-</script>
+        <script  src="./validator.js"></script>
 </body>
 </html>
 

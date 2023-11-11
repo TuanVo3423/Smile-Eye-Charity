@@ -1050,7 +1050,6 @@ body {
 .toast {
   display: flex;
   align-items: center;
-  background-color: #38bd43;
   border-radius: 4px;
   padding: 20px 0;
   min-width: 400px;
@@ -1078,30 +1077,34 @@ body {
 }
 
 .toast--success {
-  border-color: #2e7d2a;
+  background-color: #38bd43;
+  border-color: #fff;
 }
 
 .toast--success .toast__icon {
-  color: #2e7d2a;
+  color: #fff;
 }
 
 .toast--info {
-  border-color: #2f86eb;
+  background-color: #2f86eb;
+  border-color: #fff;
 }
 
 .toast--info .toast__icon {
-  color: #2f86eb;
+  color: #fff;
 }
 
 .toast--warning {
-  border-color: #ffc021;
+  border-color: #fff;
+  background-color: #ffc021;
 }
 
 .toast--warning .toast__icon {
-  color: #ffc021;
+  color: #fff;
 }
 
 .toast--error {
+  background-color: #fff;
   border-color: #ff623d;
 }
 

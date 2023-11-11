@@ -1,3 +1,41 @@
+function showSuccessToast() {
+  toast({
+    title: "Thành công!",
+    message:
+      "Gửi mail thành công, chúng tôi sẽ liên hệ với bạn sớm nhất có thể.",
+    type: "success",
+    duration: 5000,
+  });
+}
+function showInfoToast() {
+  toast({
+    title: "Thất bại!",
+    message: "Vui lòng điền đầy đủ thông tin.",
+    type: "info",
+    duration: 5000,
+  });
+}
+(function () {
+  emailjs.init("oGf2xSghLt1ka_BVe");
+})();
+function sendMail() {
+  var params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    content: document.getElementById("content").value,
+  };
+  const serviceID = "service_jv500u5";
+  const templateID = "template_f68zv0n";
+  emailjs.send(serviceID, templateID, params).then((res) => {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("content").value = "";
+    document.querySelector(".modal").setAttribute("style", "display: none;");
+    showSuccessToast();
+  });
+}
 const REQUIRED_FIELD = "Vui lòng điền vào form.";
 const EMAIL_FORMAT = "Vui lòng điền đúng format của email.";
 const regression = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -19,16 +57,25 @@ var validator = new Validator({
 
 validator.form.onsubmit = (evn) => {
   evn.preventDefault();
+  var valid = {
+    content: false,
+    name: false,
+    email: false,
+  };
   const values = validator.getValues();
-  //   console.log(values);
-  //   console.log(validator);
+  // check message errors
   if (validator.errorMessages) {
     for (const key in validator.errorMessages) {
-      //   //   document.querySelector(`modal-form-right-${key}-errors`).textContent = validator.errorMessages[key];
-      //   console.log(validator.errorMessages[key]);
-      //   console.log(`modal-form-right-${key}-errors`);
       $(`.modal-form-right-${key}-errors`).text(validator.errorMessages[key]);
     }
+  }
+  for (const key in validator.errorMessages) {
+    valid[key] = validator.errorMessages[key] == " " ? true : false;
+  }
+  if (valid.content && valid.name && valid.email) {
+    sendMail();
+  } else {
+    showInfoToast();
   }
 };
 
