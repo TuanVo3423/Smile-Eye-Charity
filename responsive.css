@@ -133,10 +133,7 @@
     gap: 6px;
     padding: 10px;
   }
-}
-
-
-/* some chores */
+  /* some chores */
 .become-sponsor-btn {
   padding: 10px  !important;
 }
@@ -188,3 +185,25 @@
 .modal-form-right-header > textarea {
   height: auto;
 }
+/* toast */
+.toast {
+  padding: 4px;
+  min-width: 200px;
+  max-width: 200px;
+}
+.toast__body > h1 {
+  font-size: 18px;
+}
+.toast__msg {
+  font-size: 16px;
+}
+.toast__icon, .toast__close{
+  padding: 0 4px;
+}
+#toast {
+  bottom: 10px;
+  left: 10px;
+}
+}
+
+

@@ -326,6 +326,7 @@ h2 {
   border-color: white;
   border-radius: 40px;
   padding: 12px 14px;
+  min-width: 100px;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -1053,6 +1054,15 @@ body {
   max-width: 50%;
   width: 50%;
   overflow: auto;
+}
+.modal-form-right-submit {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-form-right-submit > img {
+  opacity: 0;
+  width: 40px;
+  height: 40px;
 }
 
 .modal-form-right-header {

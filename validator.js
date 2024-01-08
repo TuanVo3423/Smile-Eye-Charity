@@ -1,3 +1,4 @@
+const loadingImg = document.querySelector(".modal-form-right-submit img");
 function showSuccessToast() {
   toast({
     title: "Thành công!",
@@ -18,7 +19,7 @@ function showInfoToast() {
 (function () {
   emailjs.init("oGf2xSghLt1ka_BVe");
 })();
-function sendMail() {
+async function sendMail() {
   var params = {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
@@ -27,7 +28,8 @@ function sendMail() {
   };
   const serviceID = "service_jv500u5";
   const templateID = "template_f68zv0n";
-  emailjs.send(serviceID, templateID, params).then((res) => {
+  loadingImg.setAttribute("style", "opacity: 1;");
+  await emailjs.send(serviceID, templateID, params).then((res) => {
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
     document.getElementById("phone").value = "";
@@ -35,6 +37,7 @@ function sendMail() {
     document.querySelector(".modal").setAttribute("style", "display: none;");
     showSuccessToast();
   });
+  loadingImg.setAttribute("style", "opacity: 0;");
 }
 const REQUIRED_FIELD = "Vui lòng điền vào form.";
 const EMAIL_FORMAT = "Vui lòng điền đúng format của email.";
@@ -81,7 +84,6 @@ validator.form.onsubmit = (evn) => {
 
 validator.form.onreset = (evn) => {
   const data = validator.reset();
-  console.log(data);
   document.getElementById("info").innerHTML = JSON.stringify(data, null, 2);
   console.log(validator.errorMessages);
   if (validator.errorMessages) {
