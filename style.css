@@ -1295,11 +1295,11 @@ body {
 
 .header-menu-overlay {
   position: fixed;
-  background: #0b486b;
+  background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
   width: 100vw;
-  height: 0%;
+  min-height: 100vh;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.35s, visibility 0.35s, height 0.35s;
