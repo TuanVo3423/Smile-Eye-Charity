@@ -1,11 +1,121 @@
 // const player = new Plyr("video", { captions: { active: true } });
+// tao guest_id
+// fetch like
+// check render like icon for liked
+
+if (localStorage.getItem("guest_id") == null) {
+  const guest_id = Math.random().toString(36).substring(2, 15);
+  localStorage.setItem("guest_id", guest_id);
+}
+
+const likes = document.querySelectorAll(".like");
+likes.forEach((like) => {
+  like.addEventListener("click", function () {
+    
+    // like
+    if (like.getAttribute("src") === "./assets/img/like.png") {
+      like.setAttribute("src", "./assets/img/img-loading.gif");
+      const post_id = like.getAttribute("alt");
+      const guest_id = localStorage.getItem("guest_id");
+      const data = {
+        event_id: post_id,
+        user_id: guest_id,
+      };
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+        body: JSON.stringify(data),
+      };
+      
+      fetch("http://localhost:3000/smile-eye-charity", requestOptions)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          like.setAttribute("src", "./assets/img/icon-love.gif");
+          like.nextSibling.nextElementSibling.innerHTML = `${data.like} Likes`;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+    // unlike
+     if (like.getAttribute("src") === './assets/img/icon-love.gif') {
+      like.setAttribute("src", "./assets/img/img-loading.gif");
+      const event_id = like.getAttribute("alt");
+      const guest_id = localStorage.getItem("guest_id");
+      const authorization = guest_id;
+      const requestOptions = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": authorization
+        },
+        withCredentials: true,
+      };
+      fetch(`http://localhost:3000/smile-eye-charity/${event_id}`, requestOptions)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          like.setAttribute("src", "./assets/img/like.png");
+          like.nextSibling.nextElementSibling.innerHTML = `${data.like} Likes`;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  });
+});
+
+// fetch
+async function fetchLike() {
+  const guest_id = await localStorage.getItem("guest_id");
+  const res = await fetch("http://localhost:3000/smile-eye-charity")
+    .then((res) => res.json())
+    .then((data) => {
+      likes.forEach((like) => {
+        const likes = data.like;
+        if (likes && likes.length > 0) {
+          const event_id = like.getAttribute("alt");
+          const likeCount = likes.filter(
+            (item) => item.event_id == event_id
+          ).length;
+          const isLiked = likes.filter(
+            (item) => item.event_id == event_id && item.user_id == guest_id
+          );
+          if (isLiked.length > 0) {
+            like.setAttribute("src", "./assets/img/icon-love.gif");
+          } else if (isLiked.length == 0) {
+            like.setAttribute("src", "./assets/img/like.png");
+          }
+          like.nextSibling.nextElementSibling.innerHTML = `${likeCount} Likes`;
+        }
+        if (likes.length === 0) {
+          like.setAttribute("src", "./assets/img/like.png");
+          like.nextSibling.nextElementSibling.innerHTML = `0 Likes`;
+        }
+      });
+    });
+}
+fetchLike();
+
 document
   .querySelector("#header-button-menu-toggle")
   .addEventListener("click", function () {
     this.classList.toggle("active");
     document.querySelector("#overlay").classList.toggle("open");
   });
-
 
 const players = Array.from(document.querySelectorAll(".js-player")).map(
   (p) => new Plyr(p, { captions: { active: true } })
@@ -1064,19 +1174,22 @@ const searchInput = selectWrapperDestop.querySelector("input");
 const optionsBox = document.querySelector(".options");
 const optionsBoxMobile = document.querySelector(".options-mobile");
 const current_language = document.querySelector(".current-language-flag");
+const current_language_mobile = document.querySelector(".current-language-flag-mobile");
 const overview_link_drive = document.querySelectorAll(".overview_link_drive");
-const item_make_close_header_mobile = document.querySelectorAll(".overlay-menu ul li");
+const item_make_close_header_mobile = document.querySelectorAll(
+  ".overlay-menu ul li"
+);
 const plan_link_drive = document.querySelectorAll(".plan_link_drive");
 
 function CloseHeaderMobile() {
   document
-  .querySelector("#header-button-menu-toggle").classList.toggle("active");
-    document.querySelector("#overlay").classList.toggle("open");
-  };
+    .querySelector("#header-button-menu-toggle")
+    .classList.toggle("active");
+  document.querySelector("#overlay").classList.toggle("open");
+}
 
 const countries = ["VN", "ENG", "JAPAN", "FRANCE"];
 item_make_close_header_mobile.forEach(function (item) {
-    
   // set onclick for each item
   item.addEventListener("click", () => {
     CloseHeaderMobile();
@@ -1152,7 +1265,6 @@ function updateName(selectedLi) {
       link_drive_mapping[localStorage.getItem("current-language").toLowerCase()]
     );
   });
- 
 
   plan_link_drive.forEach(function (item) {
     item.setAttribute(
@@ -1164,11 +1276,12 @@ function updateName(selectedLi) {
 function updateNameMobile(selectedLi) {
   selectWrapperMobile.classList.remove("active");
   selectBtnLanguageMobile.lastElementChild.textContent = selectedLi.textContent;
+  
   localStorage.setItem(
     "current-language",
     selectedLi.textContent.toLowerCase()
   );
-  current_language.setAttribute(
+  current_language_mobile.setAttribute(
     "src",
     `./assets/img/${selectedLi.textContent.toLowerCase()}.png`
   );
@@ -1193,6 +1306,7 @@ function updateNameMobile(selectedLi) {
       link_drive_mapping[localStorage.getItem("current-language").toLowerCase()]
     );
   });
+  // CloseHeaderMobile();
 }
 
 // header active

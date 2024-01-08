@@ -21,6 +21,21 @@
   .right {
     display: none;
   }
+  .language-flag-wrap:hover {
+    background-color: transparent;
+  }
+  .header-menu-overlay ul li:after{
+    content: none;
+  }
+  .header-menu-overlay ul li a{
+    color: black;
+  }
+  .header-menu-overlay ul li{
+    background-color: white;
+  }
+  .content-mobile .language-flag-wrap li {
+    background-color: green;
+  }
   & .select-wrapper {
     & .content {
       top: 0 !important;
