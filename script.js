@@ -1,4 +1,12 @@
 // const player = new Plyr("video", { captions: { active: true } });
+document
+  .querySelector("#header-button-menu-toggle")
+  .addEventListener("click", function () {
+    this.classList.toggle("active");
+    document.querySelector("#overlay").classList.toggle("open");
+  });
+
+
 const players = Array.from(document.querySelectorAll(".js-player")).map(
   (p) => new Plyr(p, { captions: { active: true } })
 );
@@ -833,7 +841,7 @@ const arrLang = {
     Overview: "Aperçu",
     Aperçu: "Aperçu",
     "Tổng quan": "Aperçu",
-    "概要": "Aperçu",
+    概要: "Aperçu",
     Plan: "Plan",
     計画: "Plan",
     "Kế hoạch": "Plan",
@@ -1047,15 +1055,40 @@ const arrLang = {
 
 const language_options = ["vn", "eng"];
 
-const selectWrapper = document.querySelector(".select-wrapper");
-const selectBtn = selectWrapper.querySelector(".select-btn");
-const searchInput = selectWrapper.querySelector("input");
-const optionsBox = selectWrapper.querySelector(".options");
+const selectWrapperDestop = document.querySelector(".select-wrapper");
+const selectWrapperMobile = document.querySelector(".select-wrapper-mobile");
+const selectBtnLanguageDesktop = document.querySelector(".select-btn");
+const selectBtnLanguageMobile = document.querySelector(".select-btn-mobile");
+
+const searchInput = selectWrapperDestop.querySelector("input");
+const optionsBox = document.querySelector(".options");
+const optionsBoxMobile = document.querySelector(".options-mobile");
 const current_language = document.querySelector(".current-language-flag");
 const overview_link_drive = document.querySelectorAll(".overview_link_drive");
+const item_make_close_header_mobile = document.querySelectorAll(".overlay-menu ul li");
 const plan_link_drive = document.querySelectorAll(".plan_link_drive");
 
+function CloseHeaderMobile() {
+  document
+  .querySelector("#header-button-menu-toggle").classList.toggle("active");
+    document.querySelector("#overlay").classList.toggle("open");
+  };
+
 const countries = ["VN", "ENG", "JAPAN", "FRANCE"];
+item_make_close_header_mobile.forEach(function (item) {
+    
+  // set onclick for each item
+  item.addEventListener("click", () => {
+    CloseHeaderMobile();
+  });
+});
+
+selectBtnLanguageMobile.addEventListener("click", () => {
+  selectWrapperMobile.classList.toggle("active");
+});
+selectBtnLanguageDesktop.addEventListener("click", () => {
+  selectWrapperDestop.classList.toggle("active");
+});
 
 function addCountry() {
   for (let country of countries) {
@@ -1065,6 +1098,19 @@ function addCountry() {
             <div class="language-flag-wrap">
             <img class="language-flag" src="./assets/img/${country.toLowerCase()}.png" />
             <li onclick="updateName(this)">${country}</li>
+            </div>
+        `
+    );
+  }
+}
+function addCountryMobile() {
+  for (let country of countries) {
+    optionsBoxMobile.insertAdjacentHTML(
+      "beforeend",
+      `
+            <div class="language-flag-wrap">
+            <img class="language-flag" src="./assets/img/${country.toLowerCase()}.png" />
+            <li onclick="updateNameMobile(this)">${country}</li>
             </div>
         `
     );
@@ -1081,10 +1127,43 @@ const link_drive_mapping = {
 };
 
 addCountry();
+addCountryMobile();
 localStorage.setItem("current-language", "vn");
 function updateName(selectedLi) {
-  selectWrapper.classList.remove("active");
-  selectBtn.lastElementChild.textContent = selectedLi.textContent;
+  selectWrapperDestop.classList.remove("active");
+  selectBtnLanguageDesktop.lastElementChild.textContent =
+    selectedLi.textContent;
+  localStorage.setItem(
+    "current-language",
+    selectedLi.textContent.toLowerCase()
+  );
+  current_language.setAttribute(
+    "src",
+    `./assets/img/${selectedLi.textContent.toLowerCase()}.png`
+  );
+  $(".language").each(function (index, element) {
+    $(this).text(arrLang[selectedLi.textContent][$(this).text().trim()]);
+    console.log(arrLang[selectedLi.textContent][$(this).text().trim()]);
+  });
+
+  overview_link_drive.forEach(function (item) {
+    item.setAttribute(
+      "href",
+      link_drive_mapping[localStorage.getItem("current-language").toLowerCase()]
+    );
+  });
+ 
+
+  plan_link_drive.forEach(function (item) {
+    item.setAttribute(
+      "href",
+      link_drive_mapping[localStorage.getItem("current-language").toLowerCase()]
+    );
+  });
+}
+function updateNameMobile(selectedLi) {
+  selectWrapperMobile.classList.remove("active");
+  selectBtnLanguageMobile.lastElementChild.textContent = selectedLi.textContent;
   localStorage.setItem(
     "current-language",
     selectedLi.textContent.toLowerCase()
@@ -1115,10 +1194,6 @@ function updateName(selectedLi) {
     );
   });
 }
-
-selectBtn.addEventListener("click", () => {
-  selectWrapper.classList.toggle("active");
-});
 
 // header active
 $(".nav-item").each(function (index, element) {
