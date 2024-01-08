@@ -1306,7 +1306,7 @@ function updateNameMobile(selectedLi) {
       link_drive_mapping[localStorage.getItem("current-language").toLowerCase()]
     );
   });
-  // CloseHeaderMobile();
+  CloseHeaderMobile();
 }
 
 // header active
